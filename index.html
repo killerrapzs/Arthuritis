@@ -48,6 +48,18 @@
           display:block;
           max-width:100%;
       }
+      
+      /* Particle Canvas Fixed Positioning */
+      #particleCanvas {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          pointer-events: none; /* Allows clicks to pass through to buttons/links */
+          z-index: 5; /* Floating overlay above backgrounds, beneath header/interactive UI */
+      }
+
       .container {
           width:100%;
           max-width:1280px;
@@ -81,7 +93,7 @@
       }
       header {
           position:fixed;
-          z-index:10;
+          z-index:20;
           inset:0 0 auto;
           background:rgba(17,17,15,.78);
           border-bottom:1px solid rgba(237,233,221,.12);
@@ -175,7 +187,7 @@
       }
       .hero-inner {
           position:relative;
-          z-index:1;
+          z-index:6;
           min-height:760px;
           display:flex;
           align-items:center;
@@ -232,7 +244,7 @@
       }
       .scroll {
           position:absolute;
-          z-index:2;
+          z-index:6;
           right:24px;
           bottom:24px;
           color:var(--paper-deep);
@@ -244,6 +256,8 @@
           background:var(--lime);
           color:var(--ink);
           border-block:1px solid var(--line);
+          position: relative;
+          z-index: 6;
       }
       .ticker-track {
           width:max-content;
@@ -260,6 +274,8 @@
           }
       }
       section {
+          position:relative;
+          z-index:6;
           padding:132px 0;
       }
       .section-head {
@@ -692,6 +708,8 @@
           font-size:10px;
       }
       footer {
+          position:relative;
+          z-index:6;
           background:var(--ink-soft);
       }
       .footer-top {
@@ -744,6 +762,7 @@
           transform:translateY(0);
           opacity:1;
       }
+
       @media(max-width:1000px) {
           .beat-row {
               grid-template-columns:32px 34px minmax(150px,1fr) 70px 80px 80px 95px;
@@ -895,6 +914,9 @@
     </style>
   </head>
   <body>
+    <!-- Particle canvas positioned at top for visual overlay -->
+    <canvas id="particleCanvas"></canvas>
+
     <header>
       <div class="container header-inner">
         <a class="brand" href="#top">
@@ -1063,12 +1085,12 @@
           </div>
           <div class="gallery-grid">
             <button class="gallery-card gallery-1" onclick="openGallery(this.querySelector('img').src)">
-              <img src="/manus-storage/sonic-gallery-01_717d4c4d.jpg" alt="Plastic Halo">
+              <img src="https://i.postimg.cc/sDWvbVxq/04d6af63-b3ef-47c2-a0ff-2f8ca42fe4dd.jpg" alt="Plastic Halo">
               <span class="index">01</span>
               <span class="gallery-copy"><strong>Plastic Halo</strong><small>Cover art / 2026</small></span>
             </button>
             <button class="gallery-card gallery-2" onclick="openGallery(this.querySelector('img').src)">
-              <img src="/manus-storage/sonic-gallery-02_529e3679.jpg" alt="Concrete Frequency">
+              <img src="https://i.postimg.cc/g0kQL2Z9/unnamed.jpg" alt="Concrete Frequency">
               <span class="index">02</span>
               <span class="gallery-copy">
                 <strong>Concrete Frequency</strong>
@@ -1076,7 +1098,7 @@
               </span>
             </button>
             <button class="gallery-card gallery-3" onclick="openGallery(this.querySelector('img').src)">
-              <img src="/manus-storage/sonic-gallery-03_9a451310.jpg" alt="Orbiting Weather">
+              <img src="https://i.postimg.cc/sDWvbVxq/04d6af63-b3ef-47c2-a0ff-2f8ca42fe4dd.jpg" alt="Orbiting Weather">
               <span class="index">03</span>
               <span class="gallery-copy"><strong>Orbiting Weather</strong><small>Visual loop / 2025</small></span>
             </button>
@@ -1117,7 +1139,7 @@
           <div class="products">
             <article class="product-card" data-type="print">
               <div class="product-image">
-                <img src="/manus-storage/sonic-gallery-01_717d4c4d.jpg" alt="Chrome Head archival print">
+                <img src="https://i.postimg.cc/sDWvbVxq/04d6af63-b3ef-47c2-a0ff-2f8ca42fe4dd.jpg" alt="Chrome Head archival print">
                 <span class="badge">LIMITED 25</span>
                 <button class="add" onclick="addToBag('Chrome Head / Archival Print')">+</button>
               </div>
@@ -1132,7 +1154,7 @@
             </article>
             <article class="product-card" data-type="apparel">
               <div class="product-image">
-                <img src="/manus-storage/sonic-gallery-02_529e3679.jpg" alt="Sonic Canvas heavyweight tee">
+                <img src="https://i.postimg.cc/g0kQL2Z9/unnamed.jpg" alt="Sonic Canvas heavyweight tee">
                 <span class="badge">NEW DROP</span>
                 <button class="add" onclick="addToBag('Sonic Canvas Heavyweight Tee')">+</button>
               </div>
@@ -1147,7 +1169,7 @@
             </article>
             <article class="product-card" data-type="media">
               <div class="product-image">
-                <img src="/manus-storage/sonic-gallery-03_9a451310.jpg" alt="Low Orbit cassette edition">
+                <img src="https://i.postimg.cc/sDWvbVxq/04d6af63-b3ef-47c2-a0ff-2f8ca42fe4dd.jpg" alt="Low Orbit cassette edition">
                 <span class="badge">SOLD OUT SOON</span>
                 <button class="add" onclick="addToBag('Low Orbit — Cassette Edition')">+</button>
               </div>
@@ -1162,7 +1184,7 @@
             </article>
             <article class="product-card" data-type="digital">
               <div class="product-image">
-                <img src="/manus-storage/sonic-hero_90c73dc0.jpg" alt="Chrome Head wallpaper pack">
+                <img src="https://i.postimg.cc/g0kQL2Z9/unnamed.jpg" alt="Chrome Head wallpaper pack">
                 <span class="badge">INSTANT DOWNLOAD</span>
                 <button class="add" onclick="addToBag('Chrome Head Wallpaper Pack')">+</button>
               </div>
@@ -1244,12 +1266,14 @@
       </div>
     </footer>
     <div id="toast"></div>
-    <div id="lightbox" onclick="closeGallery()" style="display:none;position:fixed;z-index:20;inset:0;background:#060605dd;backdrop-filter:blur(9px);align-items:center;justify-content:center;padding:24px">
+    <div id="lightbox" onclick="closeGallery()" style="display:none;position:fixed;z-index:30;inset:0;background:#060605dd;backdrop-filter:blur(9px);align-items:center;justify-content:center;padding:24px">
       <img id="lightboxImage" alt="Expanded artwork" style="max-width:85vw;max-height:85vh;object-fit:contain;box-shadow:0 30px 80px #0008">
       <button onclick="closeGallery()" style="position:absolute;top:24px;right:24px;width:40px;height:40px;border:1px solid #ede9dd88;border-radius:50%;background:transparent;color:#ede9dd;font-size:20px">
         ×
       </button>
     </div>
+
+    <!-- UI Interactions Script -->
     <script>
       const bars = document.getElementById('bars');
       for (let i = 0; i < 54; i++) {
@@ -1258,12 +1282,10 @@
         bars.appendChild(b);
       }
 
-      // Audio engine logic
       const currentAudio = new Audio();
       let isPlaying = false;
       let timer;
 
-      // Load initial beat
       currentAudio.src = 'https://ia601508.us.archive.org/33/items/mansions_202609/Mansions.mp3';
 
       function formatTime(seconds) {
@@ -1355,6 +1377,125 @@
           document.getElementById(button.dataset.scroll).scrollIntoView({ behavior: 'smooth' });
         });
       });
+    </script>
+
+    <!-- Interactive Particle Canvas Engine -->
+    <script>
+      const canvas = document.getElementById('particleCanvas');
+      const ctx = canvas.getContext('2d');
+
+      const imgUrls = [
+        'https://i.postimg.cc/cL4PrBjM/2dollar.png',
+        'https://i.postimg.cc/htPNf1w1/imgbin-e21ff2a3dfa500e6fadee762db406203.png',
+        'https://i.postimg.cc/CxL9zsXT/vecteezy-1-canadian-dollar-49773547.png'
+      ];
+
+      const loadedImages = [];
+      let particles = [];
+      
+      const mouse = {
+        x: null,
+        y: null,
+        radius: 150
+      };
+
+      window.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+
+      imgUrls.forEach((url) => {
+        const img = new Image();
+        img.src = url;
+        img.onload = () => loadedImages.push(img);
+      });
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+
+      class Particle {
+        constructor() {
+          this.reset();
+        }
+
+        reset() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.size = Math.random() * 45 + 25;
+          this.speedX = (Math.random() - 0.5) * 0.8;
+          this.speedY = (Math.random() - 0.5) * 0.8;
+          this.angle = Math.random() * Math.PI * 2;
+          this.rotSpeed = (Math.random() - 0.5) * 0.015;
+          this.opacity = Math.random() * 0.5 + 0.3;
+          this.image = loadedImages[Math.floor(Math.random() * loadedImages.length)];
+        }
+
+        update() {
+          if (mouse.x !== null && mouse.y !== null) {
+            const dx = mouse.x - this.x;
+            const dy = mouse.y - this.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < mouse.radius) {
+              const forceDirectionX = dx / distance;
+              const forceDirectionY = dy / distance;
+              const maxDistance = mouse.radius;
+              const force = (maxDistance - distance) / maxDistance;
+              
+              this.x -= forceDirectionX * force * 3;
+              this.y -= forceDirectionY * force * 3;
+            }
+          }
+
+          this.x += this.speedX;
+          this.y += this.speedY;
+          this.angle += this.rotSpeed;
+
+          if (this.x < -60) this.x = canvas.width + 60;
+          if (this.x > canvas.width + 60) this.x = -60;
+          if (this.y < -60) this.y = canvas.height + 60;
+          if (this.y > canvas.height + 60) this.y = -60;
+        }
+
+        draw() {
+          if (!this.image) return;
+          ctx.save();
+          ctx.globalAlpha = this.opacity;
+          ctx.translate(this.x, this.y);
+          ctx.rotate(this.angle);
+          ctx.drawImage(this.image, -this.size / 2, -this.size / 2, this.size, this.size);
+          ctx.restore();
+        }
+      }
+
+      function initParticles() {
+        if (loadedImages.length < imgUrls.length) {
+          setTimeout(initParticles, 50);
+          return;
+        }
+
+        particles = [];
+        const particleCount = Math.floor((canvas.width * canvas.height) / 35000);
+        for (let i = 0; i < Math.max(20, particleCount); i++) {
+          particles.push(new Particle());
+        }
+        animate();
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach((p) => {
+          p.update();
+          p.draw();
+        });
+        requestAnimationFrame(animate);
+      }
+
+      initParticles();
     </script>
   </body>
 </html>
