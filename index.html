@@ -109,7 +109,7 @@
       .player-art:after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(17,17,15,.1),rgba(17,17,15,.72)); }
       .player-art span { position:absolute; z-index:1; top:16px; left:16px; color:var(--lime); font:9px 'DM Mono',monospace; }
       .player-main { padding:27px 32px; }
-      .player-top,.times,.shop-toolbar,.product-info { display:flex; justify-space-between; align-items:center; }
+      .player-top,.times,.shop-toolbar,.product-info { display:flex; justify-content:space-between; align-items:center; }
       .player-top,.times { color:var(--muted); font:9px 'DM Mono',monospace; letter-spacing:.1em; }
       .player-title { display:flex; align-items:end; justify-content:space-between; margin-top:38px; }
       .player-title h3 { margin:0 0 6px; font:500 30px 'Space Grotesk',sans-serif; letter-spacing:-.06em; }
@@ -432,67 +432,102 @@
               <button onclick="filterProducts('media',this)">MEDIA</button>
               <button onclick="filterProducts('digital',this)">DIGITAL</button>
             </div>
-            <span class="count">04 OBJECTS</span>
+            <span class="count">06 OBJECTS</span>
           </div>
           <div class="products">
-            <article class="product-card" data-type="print">
-              <div class="product-image">
-                <img src="https://i.postimg.cc/sDWvbVxq/04d6af63-b3ef-47c2-a0ff-2f8ca42fe4dd.jpg" alt="Chrome Head archival print">
-                <span class="badge">LIMITED 25</span>
-                <button class="add" onclick="addToBag('Chrome Head / Archival Print')">+</button>
-              </div>
-              <div class="product-info">
-                <div>
-                  <span class="product-type">PRINT</span>
-                  <h3>Chrome Head / Archival Print</h3>
-                  <p>18 × 24 in · pigment on cotton</p>
-                </div>
-                <strong class="product-price">$48</strong>
-              </div>
-            </article>
             <article class="product-card" data-type="apparel">
               <div class="product-image">
-                <img src="https://i.postimg.cc/g0kQL2Z9/unnamed.jpg" alt="Sonic Canvas heavyweight tee">
+                <img src="https://i.postimg.cc/rsFJyQZM/1789250703203.png" alt="GODSPEED Y2K Heavyweight Tee">
                 <span class="badge">NEW DROP</span>
-                <button class="add" onclick="addToBag('Sonic Canvas Heavyweight Tee')">+</button>
+                <button class="add" onclick="addToBag('GODSPEED Y2K Heavyweight Tee')">+</button>
               </div>
               <div class="product-info">
                 <div>
                   <span class="product-type">APPAREL</span>
-                  <h3>Sonic Canvas Heavyweight Tee</h3>
-                  <p>240gsm cotton · washed black</p>
+                  <h3>GODSPEED Y2K Heavyweight Tee</h3>
+                  <p>240gsm cotton · Chrome Sigil Graphic</p>
                 </div>
-                <strong class="product-price">$42</strong>
+                <strong class="product-price">$45</strong>
               </div>
             </article>
-            <article class="product-card" data-type="media">
+
+            <article class="product-card" data-type="apparel">
               <div class="product-image">
-                <img src="https://i.postimg.cc/sDWvbVxq/04d6af63-b3ef-47c2-a0ff-2f8ca42fe4dd.jpg" alt="Low Orbit cassette edition">
-                <span class="badge">SOLD OUT SOON</span>
-                <button class="add" onclick="addToBag('Low Orbit — Cassette Edition')">+</button>
+                <img src="https://i.postimg.cc/0j2f5cX9/1789250802143.png" alt="TRENCHES Cyber-Sigil Tee">
+                <span class="badge">NEW DROP</span>
+                <button class="add" onclick="addToBag('TRENCHES Cyber-Sigil Tee')">+</button>
               </div>
               <div class="product-info">
                 <div>
-                  <span class="product-type">MEDIA</span>
-                  <h3>Low Orbit — Cassette Edition</h3>
-                  <p>Limited run · hand-numbered</p>
+                  <span class="product-type">APPAREL</span>
+                  <h3>TRENCHES Cyber-Sigil Tee</h3>
+                  <p>240gsm cotton · Acid Washed Black</p>
                 </div>
-                <strong class="product-price">$18</strong>
+                <strong class="product-price">$45</strong>
               </div>
             </article>
-            <article class="product-card" data-type="digital">
+
+            <article class="product-card" data-type="apparel">
               <div class="product-image">
-                <img src="https://i.postimg.cc/g0kQL2Z9/unnamed.jpg" alt="Chrome Head wallpaper pack">
-                <span class="badge">INSTANT DOWNLOAD</span>
-                <button class="add" onclick="addToBag('Chrome Head Wallpaper Pack')">+</button>
+                <img src="https://i.postimg.cc/2y8wj295/1789525339686.png" alt="GODSPEED Chrome Crest Tee">
+                <span class="badge">LIMITED RUN</span>
+                <button class="add" onclick="addToBag('GODSPEED Chrome Crest Tee')">+</button>
               </div>
               <div class="product-info">
                 <div>
-                  <span class="product-type">DIGITAL</span>
-                  <h3>Chrome Head Wallpaper Pack</h3>
-                  <p>6 high-res files · 4K ready</p>
+                  <span class="product-type">APPAREL</span>
+                  <h3>GODSPEED Chrome Crest Tee</h3>
+                  <p>Heavyweight boxy fit · Front &amp; back print</p>
                 </div>
-                <strong class="product-price">$12</strong>
+                <strong class="product-price">$48</strong>
+              </div>
+            </article>
+
+            <article class="product-card" data-type="apparel">
+              <div class="product-image">
+                <img src="https://i.postimg.cc/J04q7PYL/2026-09-15-19-03-35-0400.jpg" alt="Cold World Sigil Hoodie">
+                <span class="badge">EXCLUSIVE</span>
+                <button class="add" onclick="addToBag('Cold World Sigil Hoodie')">+</button>
+              </div>
+              <div class="product-info">
+                <div>
+                  <span class="product-type">APPAREL</span>
+                  <h3>Cold World Sigil Hoodie</h3>
+                  <p>450gsm French Terry · Custom Hardware</p>
+                </div>
+                <strong class="product-price">$85</strong>
+              </div>
+            </article>
+
+            <article class="product-card" data-type="apparel">
+              <div class="product-image">
+                <img src="https://i.postimg.cc/3NJBrnfJ/image-e52152e6.jpg" alt="PIMP RAGE Streetwear Tee">
+                <span class="badge">NEW DROP</span>
+                <button class="add" onclick="addToBag('PIMP RAGE Streetwear Tee')">+</button>
+              </div>
+              <div class="product-info">
+                <div>
+                  <span class="product-type">APPAREL</span>
+                  <h3>PIMP RAGE Streetwear Tee</h3>
+                  <p>Heavyweight cotton · Liquid Chrome Print</p>
+                </div>
+                <strong class="product-price">$45</strong>
+              </div>
+            </article>
+
+            <article class="product-card" data-type="apparel">
+              <div class="product-image">
+                <img src="https://i.postimg.cc/x8TRjtp8/Screenshot-20260914-135558-Google.jpg" alt="TORONTO Trenches Oversized Tee">
+                <span class="badge">NEW DROP</span>
+                <button class="add" onclick="addToBag('TORONTO Trenches Oversized Tee')">+</button>
+              </div>
+              <div class="product-info">
+                <div>
+                  <span class="product-type">APPAREL</span>
+                  <h3>TORONTO Trenches Oversized Tee</h3>
+                  <p>240gsm vintage wash · Custom Typography</p>
+                </div>
+                <strong class="product-price">$45</strong>
               </div>
             </article>
           </div>
